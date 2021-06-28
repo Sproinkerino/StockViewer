@@ -33,6 +33,7 @@ def autodetectWidth(data):
             widths[i] = max(widths[i], mystrlen(line[i]))
 
     col = os.get_terminal_size().columns -12
+    widths = [5,5,12,5,5,12]
     mm = sum(widths)
     widths = [int(x * 1.0 / mm * col)  for x in widths]
     return widths
@@ -57,8 +58,8 @@ def format_dict(stock):
 
 
 def form_str(stocks):
-    new_list = [['TICKER', 'PRICE','CHANGE', 'PREPOST_PRICE','CHANGE', 'DAYRANGE']]
-    len_list = [['TICKER', 'PRICE','CHANGE', 'PREPOST_PRICE','CHANGE', 'DAYRANGE']]
+    new_list = [['TICKER', 'PRICE','CHANGE', 'PPPrice','CHANGE', 'DAYRANGE']]
+    len_list = [['TICKER', 'PRICE','CHANGE', 'PPPrice','CHANGE', 'DAYRANGE']]
     for stock in stocks:
         len_list.append(list(stock.values()))
         # stock = format_dict(stock)
