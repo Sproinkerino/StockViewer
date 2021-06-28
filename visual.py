@@ -33,7 +33,7 @@ def autodetectWidth(data):
             widths[i] = max(widths[i], mystrlen(line[i]))
 
     col = os.get_terminal_size().columns -12
-    widths = [4,5,11,5,11,10]
+    widths = [4,5,10,5,10,9]
     mm = sum(widths)
     widths = [int(x * 1.0 / mm * col)  for x in widths]
     return widths
