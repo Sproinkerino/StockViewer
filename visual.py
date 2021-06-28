@@ -84,7 +84,7 @@ def form_str(stocks):
 
 while True:
     data_list = []
-    LIST_OF_STOCKS = ['TIGR', 'AAPL', 'BB', 'CRSR', 'FLGT','SPY', 'C6L.SI', 'F83.SI']
+    LIST_OF_STOCKS = ['TIGR', 'AAPL', 'BB', 'CRSR', 'FLGT','SPY', 'C6L.SI', 'F83.SI','SENS']
     Test = False
     if Test:
         data_list = [{'Ticker': 'TIGR', 'Price': '26.62', 'PrePostPrice': '26.94', 'Change': '+2.54 (+10.55%)',
@@ -125,4 +125,4 @@ while True:
     res_string = res_string.replace('\033[0m','\033[0m          ')
     print(res_string, end='\r')
 
-    time.sleep(60 * 5)
+    time.sleep(60 * 2)
