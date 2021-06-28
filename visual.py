@@ -63,7 +63,7 @@ def form_str(stocks):
     for stock in stocks:
         len_list.append(list(stock.values()))
         # stock = format_dict(stock)
-        new_list.append([stock['Ticker'], stock['Price'][0:6], stock['Change'].replace(' ',''), stock['PrePostPrice'][0:6], stock['PrePostChange'].replace(' ',''), stock['DayRange'].replace(' ','')])
+        new_list.append([stock['Ticker'], stock['Price'][0:6], stock['Change'].replace(' ','').replace('00(','('), stock['PrePostPrice'][0:6], stock['PrePostChange'].replace(' ',''), stock['DayRange'].replace(' ','')])
         # new_list.append(['', '', '','','',''])
 
     table = texttable.Texttable()
