@@ -17,12 +17,12 @@ def format_dict(stock):
         return stock
     if stock['netChange'] > 0:
         stock['lastPrice'] =f"{Black}" + f"{On_Green}" + str(stock['lastPrice']) + f"{Color_Off}" + f"{Color_Off}"
-        stock['netChange'] = f"{Black}" + f"{On_Green}"+ str(stock['netChange'] * 100) + '%' +  f"{Color_Off}" + f"{Color_Off}"
-        stock['netPercentChangeInDouble'] =f"{Black}" + f"{On_Green}" + str(stock['netPercentChangeInDouble']) + f"{Color_Off}" + f"{Color_Off}"
+        stock['netPercentChangeInDouble'] = f"{Black}" + f"{On_Green}"+ str(stock['netPercentChangeInDouble'] * 100) + '%' +  f"{Color_Off}" + f"{Color_Off}"
+        stock['netChange'] =f"{Black}" + f"{On_Green}" + str(stock['netChange']) + f"{Color_Off}" + f"{Color_Off}"
     elif stock['netChange'] < 0:
         stock['lastPrice'] = f"{On_Red}" + str(stock['lastPrice']) + f"{Color_Off}"
-        stock['netChange'] = f"{On_Red}" + str(stock['netChange'] * 100)  + "%" + f"{Color_Off}"
-        stock['netPercentChangeInDouble'] = f"{On_Red}" + str(stock['netPercentChangeInDouble']) + f"{Color_Off}"
+        stock['netPercentChangeInDouble'] = f"{On_Red}" + str(stock['netPercentChangeInDouble'] * 100)  + "%" + f"{Color_Off}"
+        stock['netChange'] = f"{On_Red}" + str(stock['netChange']) + f"{Color_Off}"
 
     # if stock['PrePostChange'][0] == '+':
     #     stock['PrePostPrice'] = f"{Red}" + stock['Price'] + f"{Color_Off}"
