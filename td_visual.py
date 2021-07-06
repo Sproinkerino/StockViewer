@@ -39,7 +39,7 @@ def get_visual(var):
     print(art.text2art(var['symbol'], font ='small')[0:-10])
     text = """
     Price: %(lastPrice)s
-    Change: %(netChange)s      PercChange: %(netPercentChangeInDouble)s
+    Change: %(netChange)s (%(netPercentChangeInDouble)s)
     High: %(highPrice)s Low: %(lowPrice)s"""
     print(text % var)
 
