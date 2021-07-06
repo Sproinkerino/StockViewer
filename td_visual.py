@@ -40,8 +40,11 @@ def get_visual(var):
     text = """
     Price: %(lastPrice)s
     Change: %(netChange)s (%(netPercentChangeInDouble)s)
-    High: %(highPrice)s Low: %(lowPrice)s"""
+    High: %(highPrice)s Low: %(lowPrice)s
+    Open: %(openPrice)s Close: %(closePrice)s"""
+
     print(text % var)
+
 
 
 
