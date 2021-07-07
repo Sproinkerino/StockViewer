@@ -4,6 +4,7 @@ import time
 import os
 import art
 
+
 def clear_console():
     command = 'clear'
     if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
@@ -13,15 +14,17 @@ def clear_console():
 
 def format_dict(stock):
     # stock['Ticker'] = f"{On_Black}" + stock['Ticker'] + f"{Color_Off}"
-    if type(stock['netChange']) == str :
+    if type(stock['netChange']) == str:
         return stock
     if stock['netChange'] > 0:
-        stock['lastPrice'] =f"{Black}" + f"{On_Green}" + str(stock['lastPrice']) + f"{Color_Off}" + f"{Color_Off}"
-        stock['netPercentChangeInDouble'] = f"{Black}" + f"{On_Green}"+ str(stock['netPercentChangeInDouble'] * 100) + '%' +  f"{Color_Off}" + f"{Color_Off}"
-        stock['netChange'] =f"{Black}" + f"{On_Green}" + str(stock['netChange']) + f"{Color_Off}" + f"{Color_Off}"
+        stock['lastPrice'] = f"{Black}" + f"{On_Green}" + str(stock['lastPrice']) + f"{Color_Off}" + f"{Color_Off}"
+        stock['netPercentChangeInDouble'] = f"{Black}" + f"{On_Green}" + str("{:.2f}".format(
+            stock['netPercentChangeInDouble'])) + '%' + f"{Color_Off}" + f"{Color_Off}"
+        stock['netChange'] = f"{Black}" + f"{On_Green}" + str(stock['netChange']) + f"{Color_Off}" + f"{Color_Off}"
     elif stock['netChange'] < 0:
         stock['lastPrice'] = f"{On_Red}" + str(stock['lastPrice']) + f"{Color_Off}"
-        stock['netPercentChangeInDouble'] = f"{On_Red}" + str(stock['netPercentChangeInDouble'] * 100)  + "%" + f"{Color_Off}"
+        stock['netPercentChangeInDouble'] = f"{On_Red}" + str("{:.2f}".format(
+            stock['netPercentChangeInDouble'])) + "%" + f"{Color_Off}"
         stock['netChange'] = f"{On_Red}" + str(stock['netChange']) + f"{Color_Off}"
 
     # if stock['PrePostChange'][0] == '+':
@@ -36,7 +39,7 @@ def format_dict(stock):
 
 def get_visual(var):
     var = format_dict(var)
-    print(art.text2art(var['symbol'], font ='small')[0:-10])
+    print(art.text2art(var['symbol'], font='small')[0:-10])
     text = """
     Price: %(lastPrice)s
     Change: %(netChange)s (%(netPercentChangeInDouble)s)
@@ -46,10 +49,8 @@ def get_visual(var):
     print(text % var)
 
 
-
-
 if __name__ == '__main__':
-    tickers = ['BB', 'AAPL', 'TIGR', 'FLGT','SPY']
+    tickers = ['BB', 'AAPL', 'TIGR', 'FLGT', 'SPY', 'SENS', 'GME', 'CRSR']
     while True:
         td = TD_Helper()
         res = td.get_data(','.join(tickers))
@@ -61,5 +62,3 @@ if __name__ == '__main__':
                 time.sleep(8)
 
                 t = t + 5
-
-
